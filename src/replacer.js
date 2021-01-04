@@ -17,36 +17,21 @@ const replace = value => {
   const dateRegex = /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))$/;
 
   return (
-    value === undefined ? values.undefined()
-    : value !== value ? values.nan()
-    : value === Infinity ? values.infinity()
-    : value === -Infinity ? values.negativeInfinity()
-    : typeof value === "function" ? values.function(value)
-    : typeof value === "bigint" ? values.function(value)
-    : (typeof value === "string" && dateRegex.test(value)) ? values.date(value)
-    : typeof value === "symbol" ? values.symbol(value)
-    : value instanceof Boolean ? values.boolean(value)
-    : value instanceof Number ? values.number(value)
-    : value instanceof String ? values.string(value)
-    : value instanceof RegExp ? values.regexp(value)
-    : value instanceof Date ? values.date(value)
+    value === undefined ? "${undefined}"
+    : value !== value ? "${NaN}"
+    : value === Infinity ? "${Infinity}"
+    : value === -Infinity ? "${-Infinity}"
+    : typeof value === "function" ? "${Function(" + value + ")}"
+    : typeof value === "bigint" ? "${BigInt(" + value + ")}"
+    : (typeof value === "string" && dateRegex.test(value)) ? "${Date(" + value + ")}"
+    : typeof value === "symbol" ? "${Symbol(" + value.description + ")}"
+    : value instanceof Boolean ? "${Boolean(" + value + ")}"
+    : value instanceof Number ? "${Number(" + value + ")}"
+    : value instanceof String ? "${String(" + value + ")}"
+    : value instanceof RegExp ? "${RegExp(" + value + ")}"
+    : value instanceof Date ? "${Date(" + value + ")}"
     : value
   );
 };
 
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : replace(value));
-
-const values = {
-  undefined: () => "${undefined}",
-  function: value => "${Function(" + value + ")}",
-  bigint: value => "${BigInt(" + value + ")}",
-  nan: () => "${NaN}",
-  infinity: () => "${Infinity}",
-  negativeInfinity: () => "${-Infinity}",
-  boolean: value => "${Boolean(" + value + ")}",
-  number: value => "${Number(" + value + ")}",
-  string: value => "${String(" + value + ")}",
-  regexp: value => "${RegExp(" + value + ")}",
-  date: value => "${Date(" + value + ")}",
-  symbol: value => "${Symbol(" + value.description + ")}"
-};
