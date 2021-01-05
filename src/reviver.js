@@ -23,8 +23,10 @@ export const reviver = (key, value) => {
 
 const revive = value => {
   const regex = /^(?:\$\{)([\w\W]+)[\}]$/;
-  if (regex.test(value)) {
-    const matches = value.match(regex);
+  
+  const matches = typeof value === "string" && value.match(regex);
+
+  if (matches) {
     const val = matches[1];
     
     return (
@@ -32,14 +34,23 @@ const revive = value => {
       : val === "NaN" ? NaN
       : val === "Infinity" ? Infinity
       : val === "-Infinity" ? -Infinity
-      : val.startsWith("Function") ? eval(getInstanceValue(val))
-      : val.startsWith("BigInt") ? BigInt(getInstanceValue(val))
-      : val.startsWith("Boolean") ? new Boolean(getInstanceValue(val))
-      : val.startsWith("Number") ? new Number(getInstanceValue(val))
-      : val.startsWith("String") ? new String(getInstanceValue(val))
-      : val.startsWith("RegExp") ? new RegExp(getInstanceValue(val).replace(/^\/|\/$/g, ""))
-      : val.startsWith("Date") ? new Date(getInstanceValue(val))
-      : val.startsWith("Symbol") ? Symbol(getInstanceValue(val))
+      : val.startsWith("Function") ? eval(getParam(val))
+      : val.startsWith("BigInt") ? BigInt(getParam(val))
+      : val.startsWith("RegExp") ? new RegExp(getParam(val).replace(/^\/|\/$/g, ""))
+      : val.startsWith("Date") ? new Date(getParam(val))
+      : val.startsWith("Symbol") ? Symbol(getParam(val))
+      : val.startsWith("Set") ? new Set(JSON.parse(getParam(val), reviver))
+      : val.startsWith("WeakSet") ? new WeakSet(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Map") ? new Map(JSON.parse(getParam(val), reviver))
+      : val.startsWith("WeakMap") ? new WeakMap(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Int8Array") ? new Int8Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Int16Array") ? new Int16Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Int32Array") ? new Int32Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Uint8Array") ? new Uint8Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Uint16Array") ? new Uint16Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Uint32Array") ? new Uint32Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Float32Array") ? new Float32Array(JSON.parse(getParam(val), reviver))
+      : val.startsWith("Float64Array") ? new Float64Array(JSON.parse(getParam(val), reviver))
       : val
     );
   };
@@ -47,5 +58,5 @@ const revive = value => {
   return value;
 };
 
-const getInstanceValue = value => value.substring(value.indexOf("(") + 1, value.lastIndexOf(")"));
+const getParam = value => value.substring(value.indexOf("(") + 1, value.lastIndexOf(")"));
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
