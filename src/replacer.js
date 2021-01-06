@@ -1,13 +1,12 @@
 export const replacer = (key, value) => (value instanceof Array) ? handleArray(value) : replace(value);
 
 const replace = value => {
-  if (typeof value === "object") {
+  if (typeof value === "object" && value !== null) {
     const symbols = Object.getOwnPropertySymbols(value);
 
     if (symbols[0]) {
       for (const symbol of symbols) {
-        const val = value[symbol];
-        const description = symbol.description;
+        const val = value[symbol], description = symbol.description;
         value["[Symbol(" + description + ")]"] = typeof val === "object" ? Object.assign({}, val) : val;
         delete value[value];
       };
@@ -22,7 +21,7 @@ const replace = value => {
     : value === Infinity ? "${Infinity}"
     : value === -Infinity ? "${-Infinity}"
     : typeof value === "function" ? "${Function(" + value + ")}"
-    : typeof value === "bigint" ? "${BigInt(" + value + ")}"
+    : typeof value === "bigint" ? "\"${BigInt(" + value + ")}\""
     : (typeof value === "string" && dateRegex.test(value)) ? "${Date(" + value + ")}"
     : typeof value === "symbol" ? "${Symbol(" + value.description + ")}"
     : typeof value === "object" ? (
@@ -33,6 +32,7 @@ const replace = value => {
       : value instanceof Map ? "${Map(" + JSON.stringify(Array.from(value), replacer) + ")}"
       : value instanceof WeakMap ? "${WeakMap(" + JSON.stringify(Array.from(value), replacer) + ")}"
       : value instanceof Int8Array ? "${Int8Array([" + handleArray(Array.from(value)) + "])}"
+      : value instanceof Uint8ClampedArray ? "${Uint8ClampedArray([" + handleArray(Array.from(value)) + "])}"
       : value instanceof Int16Array ? "${Int16Array([" + handleArray(Array.from(value)) + "])}"
       : value instanceof Int32Array ? "${Int32Array([" + handleArray(Array.from(value)) + "])}"
       : value instanceof Uint8Array ? "${Uint8Array([" + handleArray(Array.from(value)) + "])}"
@@ -40,6 +40,8 @@ const replace = value => {
       : value instanceof Uint32Array ? "${Uint32Array([" + handleArray(Array.from(value)) + "])}"
       : value instanceof Float32Array ? "${Float32Array([" + handleArray(Array.from(value)) + "])}"
       : value instanceof Float64Array ? "${Float64Array([" + handleArray(Array.from(value)) + "])}"
+      : value instanceof BigInt64Array ? "${BigInt64Array([" + handleArray(Array.from(value)) + "])}"
+      : value instanceof BigUint64Array ? "${BigUint64Array([" + handleArray(Array.from(value)) + "])}"
       : value
     )
     : value

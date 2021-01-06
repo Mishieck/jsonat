@@ -4,11 +4,26 @@ import { JSONATFetch } from "./jsonat-fetch.js";
 import { parseFromObject } from "./parse-from-object.js";
 
 
-export const JSONAT = {
-  stringify: param => JSON.stringify(param, replacer),
-  parse: param => JSON.parse(param, reviver),
+const stringify = async param => JSON.stringify(param, replacer);
+const parse = async param => JSON.parse(param, reviver);
+
+const JSONAT = {
+  stringify: async param => stringify(param),
+  parse: async param => parse(param),
+  replacer,
+  reviver,
+  fetch: JSONATFetch,
+  parseFromObject: async obj => parseFromObject(obj)
+};
+
+const JSONATS = {
+  stringify,
+  parse,
   replacer,
   reviver,
   fetch: JSONATFetch,
   parseFromObject
 };
+
+
+export { JSONAT, JSONATS };
