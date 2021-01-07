@@ -16,32 +16,32 @@ const replace = value => {
   const dateRegex = /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))$/;
 
   return (
-    value === undefined ? "${undefined}"
-    : value !== value ? "${NaN}"
-    : value === Infinity ? "${Infinity}"
-    : value === -Infinity ? "${-Infinity}"
-    : typeof value === "function" ? "${Function(" + value + ")}"
-    : typeof value === "bigint" ? "\"${BigInt(" + value + ")}\""
-    : (typeof value === "string" && dateRegex.test(value)) ? "${Date(" + value + ")}"
-    : typeof value === "symbol" ? "${Symbol(" + value.description + ")}"
+    value === undefined ? wrap("undefined")
+    : value !== value ? wrap("NaN")
+    : value === Infinity ? wrap("Infinity")
+    : value === -Infinity ? wrap("-Infinity")
+    : typeof value === "function" ? wrap(value, "Function")
+    : typeof value === "bigint" ? wrap(value, "BigInt")
+    : (typeof value === "string" && dateRegex.test(value)) ? wrap(value, "Date")
+    : typeof value === "symbol" ? wrap(value.description, "Symbol")
     : typeof value === "object" ? (
-      value instanceof RegExp ? "${RegExp(" + value + ")}"
-      : value instanceof Date ? "${Date(" + value + ")}"
-      : value instanceof Set ? "${Set(" + JSON.stringify(Array.from(value), replacer) + ")}"
-      : value instanceof WeakSet ? "${WeakSet(" + JSON.stringify(Array.from(value), replacer) + ")}"
-      : value instanceof Map ? "${Map(" + JSON.stringify(Array.from(value), replacer) + ")}"
-      : value instanceof WeakMap ? "${WeakMap(" + JSON.stringify(Array.from(value), replacer) + ")}"
-      : value instanceof Int8Array ? "${Int8Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Uint8ClampedArray ? "${Uint8ClampedArray([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Int16Array ? "${Int16Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Int32Array ? "${Int32Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Uint8Array ? "${Uint8Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Uint16Array ? "${Uint16Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Uint32Array ? "${Uint32Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Float32Array ? "${Float32Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof Float64Array ? "${Float64Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof BigInt64Array ? "${BigInt64Array([" + handleArray(Array.from(value)) + "])}"
-      : value instanceof BigUint64Array ? "${BigUint64Array([" + handleArray(Array.from(value)) + "])}"
+      value instanceof RegExp ? wrap(value, "RegExp")
+      : value instanceof Date ? wrap(value, "Date")
+      : value instanceof Set ? wrap(value, "Set", true)
+      : value instanceof WeakSet ? wrap(value, "WeakSet", true)
+      : value instanceof Map ? wrap(value, "Map", true)
+      : value instanceof WeakMap ? wrap(value, "WeakMap", true)
+      : value instanceof Int8Array ? wrap(value, "Int8Array", true)
+      : value instanceof Uint8ClampedArray ? wrap(value, "Uint8ClampedArray", true)
+      : value instanceof Int16Array ? wrap(value, "Int16Array", true)
+      : value instanceof Int32Array ? wrap(value, "Int32Array", true)
+      : value instanceof Uint8Array ? wrap(value, "Uint8Array", true)
+      : value instanceof Uint16Array ? wrap(value, "Uint16Array", true)
+      : value instanceof Uint32Array ? wrap(value, "Uint32Array", true)
+      : value instanceof Float32Array ? wrap(value, "Float32Array", true)
+      : value instanceof Float64Array ? wrap(value, "Float64Array", true)
+      : value instanceof BigInt64Array ? wrap(value, "BigInt64Array", true)
+      : value instanceof BigUint64Array ? wrap(value, "BigUint64Array", true)
       : value
     )
     : value
@@ -49,3 +49,8 @@ const replace = value => {
 };
 
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : replace(value));
+
+const wrap = (value, type, isArray) => {
+  if (isArray) value = JSON.stringify(Array.from(value), replacer);
+  return type ? "${" + type + "(" + value + ")" + "}" : "${" + value + "}";
+}
