@@ -1,19 +1,21 @@
-export const replacer = (key, value) => (value instanceof Array) ? handleArray(value) : replace(value);
+export const replacer = function (key, value) {
+  if (this[key] instanceof Date) return wrap(this[key].toISOString(), "Date");
+  return (value instanceof Array) ? handleArray(value) : replace(value);
+  
+}
 
 const replace = value => {
   if (typeof value === "object" && value !== null) {
-    const symbols = Object.getOwnPropertySymbols(value);
+    const propertySymbols = Object.getOwnPropertySymbols(value);
 
-    if (symbols[0]) {
-      for (const symbol of symbols) {
+    if (propertySymbols[0]) {
+      for (const symbol of propertySymbols) {
         const val = value[symbol], description = symbol.description;
         value["[Symbol(" + description + ")]"] = typeof val === "object" ? Object.assign({}, val) : val;
         delete value[value];
       };
     };
   };
-
-  const dateRegex = /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))$/;
 
   return (
     value === undefined ? wrap("undefined")
@@ -22,11 +24,9 @@ const replace = value => {
     : value === -Infinity ? wrap("-Infinity")
     : typeof value === "function" ? wrap(value, "Function")
     : typeof value === "bigint" ? wrap(value, "BigInt")
-    : (typeof value === "string" && dateRegex.test(value)) ? wrap(value, "Date")
     : typeof value === "symbol" ? wrap(value.description, "Symbol")
     : typeof value === "object" ? (
       value instanceof RegExp ? wrap(value, "RegExp")
-      : value instanceof Date ? wrap(value, "Date")
       : value instanceof Set ? wrap(value, "Set", true)
       : value instanceof WeakSet ? wrap(value, "WeakSet", true)
       : value instanceof Map ? wrap(value, "Map", true)

@@ -1,4 +1,4 @@
-export const reviver = (key, value) => {
+export const reviver = function (key, value) {
   if (typeof value === "object" && value !== null) {
     const keys = Object.keys(value), symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
 
@@ -55,6 +55,6 @@ const revive = value => {
   return value;
 };
 
+const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
 const getParam = value => value.substring(value.indexOf("(") + 1, value.lastIndexOf(")"));
 const parse = value => JSON.parse(getParam(value), reviver);
-const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
