@@ -1,0 +1,20 @@
+{
+  "name": "jsonat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mishieck/jsonat.git"
+  },
+  "keywords": [],
+  "author": "Mishieck Mwale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mishieck/jsonat/issues"
+  },
+  "homepage": "https://github.com/Mishieck/jsonat#readme"
+}
