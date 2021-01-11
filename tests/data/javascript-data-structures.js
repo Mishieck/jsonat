@@ -45,7 +45,7 @@ export const JAVASCRIPT_DATA_STRUCTURES = {
           typedArrays: {
             int8Array: new Int8Array([-127, 127]),
             uint8Array: new Uint8Array([0, 255]),
-            uint8ClampedArray: new Uint8ClampedArray([0, 255]),
+            uint8ClampedArray: new Uint8ClampedArray([240, 219, 79]),
             int16Array: new Int16Array([-1, 2]),
             uint16Array: new Uint16Array([1.1, 2.2]),
             int32Array: new Int32Array([-1, 2]),
@@ -58,8 +58,8 @@ export const JAVASCRIPT_DATA_STRUCTURES = {
         },
 
         keyed: {
-          set: new Set([1]),
-          map: new Map([[name, "2"]]),
+          set: new Set(["asynchronous", "synchronous"]),
+          map: new Map([["async", "JSONAT"]]),
           weakSet: new WeakSet([{a: 1}]),
           weakMap: new WeakMap([[{a: 1}, 2]])
         }
