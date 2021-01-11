@@ -1,7 +1,7 @@
 import { replacer } from "./replacer.js";
 import { reviver } from "./reviver.js";
 import { JSONATFetch } from "./jsonat-fetch.js";
-import { parseFromObject } from "./parse-from-object.js";
+import { parsePartial } from "./parse-partial.js";
 
 
 const stringify = async (value, space) => JSON.stringify(value, replacer, space);
@@ -13,7 +13,7 @@ const JSONAT = {
   replacer,
   reviver,
   fetch: JSONATFetch,
-  parseFromObject: async obj => parseFromObject(obj)
+  parsePartial: async obj => parsePartial(obj)
 };
 
 const JSONATS = {
@@ -22,7 +22,7 @@ const JSONATS = {
   replacer,
   reviver,
   fetch: JSONATFetch,
-  parseFromObject
+  parsePartial
 };
 
 export { JSONAT, JSONATS };

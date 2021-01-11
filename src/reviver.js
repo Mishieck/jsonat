@@ -1,5 +1,5 @@
 export const reviver = function (key, value) {
-  if (typeof value === "object" && value !== null) {
+  if (typeof value === "object" && value !== null && !(value instanceof Array)) {
     const keys = Object.keys(value), symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
 
     for (const k of keys) {

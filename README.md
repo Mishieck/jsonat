@@ -70,10 +70,10 @@ let value = await JSONAT.fetch(url, {
 
 <br />
 
-### __Parse from Object__
+### __Parse Partial__
 
 ```javascript
-let value = await JSONAT.parseFromObject({
+let value = await JSONAT.parsePartial({
   primaryColor: "${Uint8ClampedArray([240, 219, 79])}"
 });
 ```
@@ -329,24 +329,24 @@ let value = JSONATS.fetch(uri, {
 
 <br />
 
-### __Parse from Object__
+### __Parse Partial__
 
 #### __Description__
 
-The method `parseFromObject` parses parts of an object that are stringified using JSONAT format. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parseFromObject` would complete the parsing.
+The method `parsePartial` parses parts of an object or array that are stringified using JSONAT format. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parsePartial` would complete the parsing.
 
 <br />
 
 #### __Syntax__
-`parseFromObject(value)`
+`parsePartial(value)`
 
 #### __Parameters__
 __*value*__
 
-An object with unparsed parts.
+An object or array with unparsed parts.
 
 #### __Return Value__
-An object.
+An object or array (follows the input type).
 
 <br />
 
@@ -355,7 +355,7 @@ An object.
 ##### _JSONAT_
 
 ```javascript
-let value = await JSONAT.parseFromObject({
+let value = await JSONAT.parsePartial({
   primaryColor: "${Uint8ClampedArray([240, 219, 79])}"
 });
 ```
@@ -363,7 +363,7 @@ let value = await JSONAT.parseFromObject({
 ##### _JSONATS_
 
 ```javascript
-let value = JSONATS.parseFromObject({
+let value = JSONATS.parsePartial({
   primaryColor: "${Uint8ClampedArray([240, 219, 79])}"
 });
 ```
