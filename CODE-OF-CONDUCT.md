@@ -2,14 +2,12 @@
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-  - [Table of Contents](#table-of-contents)
-  - [Our Pledge](#our-pledge)
-  - [Our Standards](#our-standards)
-  - [Our Responsibilities](#our-responsibilities)
-  - [Scope](#scope)
-  - [Enforcement](#enforcement)
-  - [Attribution](#attribution)
+- [Our Pledge](#our-pledge)
+- [Our Standards](#our-standards)
+- [Our Responsibilities](#our-responsibilities)
+- [Scope](#scope)
+- [Enforcement](#enforcement)
+- [References](#references)
 
 <br />
 
@@ -78,7 +76,8 @@ Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
 members of the project's leadership.
 
-## Attribution
+## References
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at [http://contributor-covenant.org/version/1/4][version]
+This Code of Conduct is adapted from :
+
+* [Contributor Covenant](http://contributor-covenant.org/), [version 1.4](http://contributor-covenant.org/version/1/4).

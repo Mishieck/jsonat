@@ -1,4 +1,4 @@
-# <img src="https://user-images.githubusercontent.com/57598264/104122479-de2cd780-534d-11eb-8371-e432af65162a.png" />
+# <img src="https://user-images.githubusercontent.com/57598264/104338431-2c350d00-54ff-11eb-8293-73f2ac3f9aa3.png" />
 
 JSONAT is a JavaScript library for working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous (`JSONAT`) and synchronous (`JSONATS`) ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
 
@@ -73,54 +73,46 @@ let value = await JSONAT.parsePartial({
 ## __Documentation__
 
 ### Table of Contents
-- [<img src="https://user-images.githubusercontent.com/57598264/104122479-de2cd780-534d-11eb-8371-e432af65162a.png" />](#)
-  - [__Quick Start__](#quick-start)
-    - [__Installation__](#installation)
-    - [__Importing__](#importing)
-    - [__Stringify__](#stringify)
-    - [__Parse__](#parse)
-    - [__Fetch__](#fetch)
-    - [__Parse from Object__](#parse-from-object)
-  - [__Documentation__](#documentation)
-    - [Table of Contents](#table-of-contents)
-    - [__Introduction__](#introduction)
-    - [__Stringify__](#stringify-1)
-      - [__Description__](#description)
-      - [__Syntax__](#syntax)
-      - [__Parameters__](#parameters)
-      - [__Return Value__](#return-value)
-      - [__Usage__](#usage)
-        - [JSONAT](#jsonat)
-        - [JSONATS](#jsonats)
-    - [__Parse__](#parse-1)
-      - [__Description__](#description-1)
-      - [__Syntax__](#syntax-1)
-      - [__Parameters__](#parameters-1)
-      - [__Return Value__](#return-value-1)
-      - [__Usage__](#usage-1)
-        - [JSONAT](#jsonat-1)
-        - [JSONATS](#jsonats-1)
-    - [__Fetch__](#fetch-1)
-      - [__Description__](#description-2)
-      - [__Syntax__](#syntax-2)
-      - [__Parameters__](#parameters-2)
-      - [__Parameters__](#parameters-3)
-      - [__Return Value__](#return-value-2)
-      - [__Usage__](#usage-2)
-        - [JSONAT](#jsonat-2)
-        - [JSONATS](#jsonats-2)
-    - [__Parse from Object__](#parse-from-object-1)
-      - [__Description__](#description-3)
-      - [__Syntax__](#syntax-3)
-      - [__Parameters__](#parameters-4)
-      - [__Return Value__](#return-value-3)
-      - [__Usage__](#usage-3)
-        - [JSONAT](#jsonat-3)
-        - [JSONATS](#jsonats-3)
-    - [__Data Types__](#data-types)
-      - [__Special Cases__](#special-cases)
-    - [__Security Concerns__](#security-concerns)
 
+- [__Introduction__](#introduction)
+- [__Stringify__](#stringify-1)
+  - [__Description__](#description)
+  - [__Syntax__](#syntax)
+  - [__Parameters__](#parameters)
+  - [__Return Value__](#return-value)
+  - [__Usage__](#usage)
+    - [_JSONAT:_](#jsonat)
+    - [_JSONATS:_](#jsonats)
+- [__Parse__](#parse-1)
+  - [__Description__](#description-1)
+  - [__Syntax__](#syntax-1)
+  - [__Parameters__](#parameters-1)
+  - [__Return Value__](#return-value-1)
+  - [__Usage__](#usage-1)
+    - [_JSONAT:_](#jsonat-1)
+    - [_JSONATS:_](#jsonats-1)
+- [__Fetch__](#fetch-1)
+  - [__Description__](#description-2)
+  - [__Syntax__](#syntax-2)
+  - [__Parameters__](#parameters-2)
+  - [__Parameters__](#parameters-3)
+  - [__Return Value__](#return-value-2)
+  - [__Usage__](#usage-2)
+    - [_JSONAT:_](#jsonat-2)
+    - [_JSONATS:_](#jsonats-2)
+- [__Parse Partial__](#parse-partial-1)
+  - [__Description__](#description-3)
+  - [__Syntax__](#syntax-3)
+  - [__Parameters__](#parameters-4)
+  - [__Return Value__](#return-value-3)
+  - [__Usage__](#usage-3)
+    - [_JSONAT:_](#jsonat-3)
+    - [_JSONATS:_](#jsonats-3)
+- [__Data Types__](#data-types)
+  - [__JSON__](#json)
+  - [__JSONAT__](#jsonat-4)
+  - [__Special Cases__](#special-cases)
+- [__Security Concerns__](#security-concerns)
 
 ### __Introduction__
 
@@ -388,7 +380,10 @@ JSONAT uses `eval` to revive functions. There are some security issues associate
 
 Refer to our [Contributing to JSONAT](https://github.com/Mishieck/jsonat/main/CONTRIBUTING.md) guide for information concerning contributing.
 
+## Contact Us
+
+You can contact us via email at <jsonat4otypes@gmail.com>.
+
 ## License
 
 This library is under the [MIT License](http://choosealicense.com/licenses/mit/).
-

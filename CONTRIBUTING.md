@@ -1,6 +1,6 @@
 # Contributing to JSONAT
 
-A big welcome and thank you for considering contributing to Auth0 open source projects! It’s people like you that make it a reality for users in our community.
+A big welcome and thank you for considering contributing to JSONAT open source project! It’s people like you that make it a reality for users in our community.
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change. 
@@ -11,14 +11,12 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Table of Contents
 
-- [Contributing to JSONAT](#contributing-to-jsonat)
-  - [Table of Contents](#table-of-contents)
-  - [Code of Conduct](#code-of-conduct)
-  - [Issues](#issues)
-  - [Pull Requests](#pull-requests)
-  - [Coding Style](#coding-style)
-  - [License](#license)
-  - [References](#references)
+- [Code of Conduct](#code-of-conduct)
+- [Issues](#issues)
+- [Pull Requests](#pull-requests)
+- [Coding Style](#coding-style)
+- [License](#license)
+- [References](#references)
 
 ## Code of Conduct
 
@@ -26,7 +24,7 @@ We take our open source community seriously and hold ourselves and other contrib
 
 ## Issues
 
-Issues should be used to report problems with the library, request a new feature, or to discuss potential changes before a PR is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
+Issues should be used to report problems with the library, request a new feature, or to discuss potential changes before a pull request is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
 
 If you find an Issue that addresses the problem you're having, please add your own reproduction information to the existing issue rather than creating a new one. Adding a [reaction](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/) can also help be indicating to our maintainers that a particular problem is affecting more than just the reporter.
 
