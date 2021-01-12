@@ -448,3 +448,11 @@ JSONAT supports the following data types:
 ### __Security Concerns__
 JSONAT uses `eval` to revive functions. There are some security issues associated with `eval`. This [answer](https://security.stackexchange.com/a/94020) on StackExchange provides an insight into such security issues.
 
+<br />
+<hr />
+<br />
+
+## Contributing
+
+Refer to our [Contributing to JSONAT](https://github.com/Mishieck/jsonat/master/CONTRIBUTING.md) guide for information concerning contributing.
+
