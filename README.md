@@ -1,6 +1,6 @@
 # <img src="https://user-images.githubusercontent.com/57598264/104122479-de2cd780-534d-11eb-8371-e432af65162a.png" />
 
-JSONAT is a JavaScript library which allows working with most JavaScript native data structures in JSON format. JSONAT provides both asynchronous and synchronous ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
+JSONAT is a JavaScript library which enables working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous and synchronous ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
 
 <br />
 
@@ -139,7 +139,7 @@ let value = await JSONAT.parsePartial({
 
 ### __Introduction__
 
-JSONAT provides a way to work with most JavaScript native data structures in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use JSONAT. To use the synchronous version, use JSONATS. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given here use JSONAT, the asynchronous version. The parameters for both variants are the same.
+JSONAT provides a way to work with most JavaScript native data structures in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use `JSONAT`. To use the synchronous version, use `JSONATS`. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given here use JSONAT, the asynchronous version. The parameters for both variants are the same.
 
 <br />
 
@@ -147,7 +147,7 @@ JSONAT provides a way to work with most JavaScript native data structures in JSO
 
 #### __Description__
 
-The method `stringify` converts a value to JSON format. For values that `JSON` fails to stringify, it converts the value into a value that can be used to retrive the original value and wraps it in `"${}"`. The wrapper (`"${}"`) is used to identify these values when parsing.
+The method `stringify` converts a value to JSON format. For values that `JSON` does not support, it converts the value into a value that can be used to retrive the original value and wraps it in `"${}"`. The wrapper (`"${}"`) is used to identify these values when parsing.
 
 <br />
 
@@ -173,7 +173,7 @@ A string representing the value in JSON format.
 
 #### __Usage__
 
-##### _JSONAT_
+##### _JSONAT:_
 
 ```javascript
 let text = await JSONAT.stringify({
@@ -182,7 +182,7 @@ let text = await JSONAT.stringify({
 });
 ```
 
-##### _JSONATS_
+##### _JSONATS:_
 
 ```javascript
 let text = JSONATS.stringify({
@@ -221,6 +221,8 @@ A string to be converted to a JavaScript value.
 > __Note:__
 > `stringify` does not take a revover as a parameter. JSONAT uses its own replacer.
 
+<br />
+
 #### __Return Value__
 A value in a JavaScript data structure.
 
@@ -228,13 +230,13 @@ A value in a JavaScript data structure.
 
 #### __Usage__
 
-##### _JSONAT_
+##### _JSONAT:_
 
 ```javascript
 let value = await JSONAT.parse('{"maximum":"${Infinity}","deepClone":"${Function(async obj => await JSONAT.parse(await JSONAT.stringify(obj)))}"}');
 ```
 
-##### _JSONATS_
+##### _JSONATS:_
 
 ```javascript
 let value = JSONATS.parse('{"maximum":"${Infinity}","deepClone":"${Function(async obj => await JSONAT.parse(await JSONAT.stringify(obj)))}"}');
@@ -278,7 +280,7 @@ Format:
 
 __*init*__
 
-An object used to provide the request options. This parameter is used the same way the [init](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#parameters) parameter of the `fetch` API of the `window` object.
+An object used to provide the request options. This parameter is used the same way as the [init](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#parameters) parameter of the `fetch` API of the `window` object.
 
 __*responseType*__ (Optional)
 
@@ -297,6 +299,8 @@ The default value is `"json"`.
 > __Note:__
 > `stringify` does not take a reviver as a parameter. JSONAT uses its own replacer.
 
+<br />
+
 #### __Return Value__
 A value with content corresponding to the response type indicated by `responseType`. For example, an `Object` will be returned for `json`, and a `USVString` will be returned for `text`. If `fetch` fails to read the `Response` object to completion, the `Response` object will be returned instead.
 
@@ -304,13 +308,13 @@ A value with content corresponding to the response type indicated by `responseTy
 
 #### __Usage__
 
-##### _JSONAT_
+##### _JSONAT:_
 
 ```javascript
 let value = await JSONAT.fetch("https://api.genderize.io?name=lucy");
 ```
 
-##### _JSONATS_
+##### _JSONATS:_
 
 ```javascript
 let value = JSONATS.fetch("https://api.genderize.io?name=lucy");
@@ -329,7 +333,7 @@ let value = JSONATS.fetch("https://api.genderize.io?name=lucy");
 
 #### __Description__
 
-The method `parsePartial` can parse values as `parse` does, but also parse objects and arrays that are partially parsed. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parsePartial` would complete the parsing.
+The method `parsePartial` can parse values as `parse` can, but can also parse objects and arrays that are partially parsed. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parsePartial` would complete the parsing.
 
 <br />
 
@@ -339,16 +343,16 @@ The method `parsePartial` can parse values as `parse` does, but also parse objec
 #### __Parameters__
 __*value*__
 
-An object or array with unparsed parts.
+An unparsed value or value with unparsed parts.
 
 #### __Return Value__
-An object or array (follows the input type).
+The completly parsed value.
 
 <br />
 
 #### __Usage__
 
-##### _JSONAT_
+##### _JSONAT:_
 
 ```javascript
 let value = await JSONAT.parsePartial({
@@ -356,7 +360,7 @@ let value = await JSONAT.parsePartial({
 });
 ```
 
-##### _JSONATS_
+##### _JSONATS:_
 
 ```javascript
 let value = JSONATS.parsePartial({
@@ -375,7 +379,22 @@ let value = JSONATS.parsePartial({
 
 ### __Data Types__
 
-JSONAT successfully stringifies and parses the following JavaScript native data types, object instances and values:
+#### __JSON__
+
+JSON supports the following data types:
+
+* `null`
+* `boolean`
+* `number`
+* `string`
+* `object`
+* `array`
+
+<br />
+
+#### __JSONAT__
+
+JSONAT supports the following data types:
 
 * `null`
 * `boolean`
@@ -421,7 +440,7 @@ JSONAT successfully stringifies and parses the following JavaScript native data 
 <br />
 
 > __Note:__<br />
-> The value `undefined` is converted to `null` in order to preserve the key in an object. This is helpful in cases where the keys of an object need to be iterated over or the number of keys needs to be known.
+> The value `undefined` is converted to `null` in order to preserve keys in an object. This is helpful in cases where the keys of an object need to be iterated over or the number of keys needs to be known.
 > `WeakSet` and `WeakMap` are not successfully stringified because they are not iterable. However, this may change in the future as suggested by this [proposal](https://github.com/tc39/proposal-weakrefs#iterable-weakmaps).
 
 <br />

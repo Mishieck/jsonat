@@ -1,7 +1,7 @@
 {
   "name": "jsonat",
   "version": "1.0.0",
-  "description": "",
+  "description": "JSONAT is a JavaScript library which enables working with most JavaScript native data structures in JSON format.",
   "main": "./dist/jsonat.js",
   "files": [
     "/dist"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/Mishieck/jsonat.git"
   },
-  "keywords": [],
+  "keywords": ["jsonat", "jsonats", "json", "jsonat-stringify", "jsonat-parse", "jsonat-fetch"],
   "author": "Mishieck Mwale <mishieckmwale@gmail.com> (https://mishieck.github.io)",
   "license": "MIT",
   "bugs": {
