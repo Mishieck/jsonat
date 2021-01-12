@@ -9,8 +9,6 @@ Reading and following these guidelines will help us make the contribution proces
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-<br />
-
 ## Table of Contents
 
 - [Contributing to JSONAT](#contributing-to-jsonat)
@@ -22,21 +20,15 @@ Please note we have a code of conduct, please follow it in all your interactions
   - [License](#license)
   - [References](#references)
 
-<br />
-
 ## Code of Conduct
 
-We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/jsonat/blob/master/CODE-OF-CONDUCT.md).
-
-<br />
+We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/jsonat/blob/main/CODE-OF-CONDUCT.md).
 
 ## Issues
 
 Issues should be used to report problems with the library, request a new feature, or to discuss potential changes before a PR is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
 
 If you find an Issue that addresses the problem you're having, please add your own reproduction information to the existing issue rather than creating a new one. Adding a [reaction](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/) can also help be indicating to our maintainers that a particular problem is affecting more than just the reporter.
-
-<br />
 
 ## Pull Requests
 
@@ -45,7 +37,7 @@ Pull requests to our libraries are always welcome and can be a quick way to get 
 - Only fix/add the functionality in question **OR** address wide-spread whitespace/style issues, not both.
 - Add unit or integration tests for fixed or changed functionality (if a test suite already exists).
 - Address a single concern in the least number of changed lines as possible.
-- Include documentation in the repo or on our [docs site](https://github.com/Mishieck/jsonat#readme).
+- Include documentation in the repo [here](https://github.com/Mishieck/jsonat#readme).
 - Be accompanied by a complete pull request template (loaded automatically when a pull request is created).
 
 For changes that address core functionality or would require breaking changes (e.g. a major release), it's best to open an Issue to discuss your proposal first. This is not required but can save time creating and reviewing changes.
@@ -60,8 +52,6 @@ In general, we follow the ["fork-and-pull" Git workflow](https://github.com/susa
 6. Push changes to your fork
 7. Open a pull request in our repository and follow the PR template so that we can efficiently review the changes.
 
-<br />
-
 ## Coding Style
 
 Use a consistent coding style. The following are the style convensions to be followed:
@@ -69,13 +59,9 @@ Use a consistent coding style. The following are the style convensions to be fol
 * 2 spaces for indentation rather than tabs
 * You can try running `npm run lint` for style unification
 
-<br />
-
 ## License
 
 By contributing, you agree that your contributions will be licensed under the [MIT License](http://choosealicense.com/licenses/mit/). In short, when you submit code changes, your submissions will be understood to be under the same license that covers the project. Feel free to contact the maintainers if that's a concern.
-
-<br />
 
 ## References
 
