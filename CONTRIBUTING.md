@@ -1,5 +1,17 @@
 # Contributing to JSONAT
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Code of Conduct](#code-of-conduct)
+- [Issues](#issues)
+- [Pull Requests](#pull-requests)
+- [Coding Style](#coding-style)
+- [License](#license)
+- [References](#references)
+
+## Introduction
+
 A big welcome and thank you for considering contributing to JSONAT open source project! It’s people like you that make it a reality for users in our community.
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
@@ -8,15 +20,6 @@ email, or any other method with the owners of this repository before making a ch
 Reading and following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing these open source projects. In return, we will reciprocate that respect by addressing your issue, assessing changes, and helping you finalize your pull requests.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
-
-## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [Issues](#issues)
-- [Pull Requests](#pull-requests)
-- [Coding Style](#coding-style)
-- [License](#license)
-- [References](#references)
 
 ## Code of Conduct
 

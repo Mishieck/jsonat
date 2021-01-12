@@ -46,18 +46,13 @@ let text = await JSONAT.stringify(value);
 ### __Parse__
 
 ```javascript
-let value = await JSONAT.parse(text);
+let value = await JSONAT.parse('{"name":"JSONAT"}');
 ```
 
 ### __Fetch__
 
 ```javascript
-let value = await JSONAT.fetch(url, {
-  method: "POST",
-  body: {
-    date: new Date()
-  }
-});
+let value = await JSONAT.fetch("https://api.genderize.io?name=john");
 ```
 
 ### __Parse Partial__
@@ -171,7 +166,7 @@ let text = JSONATS.stringify({
 
 #### __Description__
 
-The method `parse` converts a string in JSON format to a JavaScript value. It uses a reviver taht revives values stringified using `stringify`.
+The method `parse` converts a string in JSON format to a JavaScript value. It uses a reviver that revives values stringified using `stringify`.
 
 #### __Syntax__
 `parse(value)`
@@ -239,16 +234,16 @@ __*responseType*__ (Optional)
 
 A string which indicates the type of response expected. It takes any of the follwing values:
 
-* `arrayBuffer`
-* `blob`
-* `formData`
-* `json`
-* `text`
+* `"arrayBuffer"`
+* `"blob"`
+* `"formData"`
+* `"json"`
+* `"text"`
 
 The default value is `"json"`.
 
 #### __Return Value__
-A value with content corresponding to the response type indicated by `responseType`. For example, an `Object` will be returned for `json`, and a `USVString` will be returned for `text`. If `fetch` fails to read the `Response` object to completion, the `Response` object will be returned instead.
+A value with content corresponding to the response type indicated by `responseType`. For example, an `Object` will be returned for `"json"`, and a `USVString` will be returned for `"text"`. If `fetch` fails to read the `Response` object to completion, the `Response` object will be returned instead.
 
 #### __Usage__
 
@@ -286,7 +281,7 @@ __*value*__
 An unparsed value or value with unparsed parts.
 
 #### __Return Value__
-The completely parsed value.
+A completely parsed value.
 
 #### __Usage__
 
@@ -368,11 +363,11 @@ JSONAT supports the following data types:
 * `WeakMap`: stringified to `"${WeakMap([])}"` and parsed to `new WeakMap([])`.
 
 > __Note:__<br />
-> The value `undefined` is converted to `null` in order to preserve keys in an object. This is helpful in cases where the keys of an object need to be iterated over or the number of keys needs to be known.
+> The value `undefined` is converted to `null` in order to preserve keys in an object. This is helpful in cases where the keys of an object need to be iterated over, or the number of keys needs to be known.
 > `WeakSet` and `WeakMap` are not successfully stringified because they are not iterable. However, this may change in the future as suggested by this [proposal](https://github.com/tc39/proposal-weakrefs#iterable-weakmaps).
 
 ### __Security Concerns__
-JSONAT uses `eval` to revive functions. There are some security issues associated with `eval`. This [answer](https://security.stackexchange.com/a/94020) on StackExchange provides an insight into such security issues.
+JSONAT uses `eval` to revive functions. There are some security issues associated with `eval`. This [answer](https://security.stackexchange.com/a/94020) on StackExchange provides some insight into such security issues.
 
 <hr />
 
@@ -382,7 +377,7 @@ Refer to our [Contributing to JSONAT](https://github.com/Mishieck/jsonat/main/CO
 
 ## Contact Us
 
-You can contact us via email at <jsonat4otypes@gmail.com>.
+You can contact us via email at <json4otypes@gmail.com>.
 
 ## License
 
