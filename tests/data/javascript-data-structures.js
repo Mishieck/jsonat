@@ -60,8 +60,8 @@ export const JAVASCRIPT_DATA_STRUCTURES = {
         keyed: {
           set: new Set(["asynchronous", "synchronous"]),
           map: new Map([["async", "JSONAT"]]),
-          weakSet: new WeakSet([{a: 1}]),
-          weakMap: new WeakMap([[{a: 1}, 2]])
+          weakSet: new WeakSet([{import: "JSONAT"}]),
+          weakMap: new WeakMap([[{sync: "JSONATS"}, 2]])
         }
       },
 

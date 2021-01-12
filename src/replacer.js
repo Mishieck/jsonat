@@ -1,20 +1,11 @@
 export const replacer = function (key, value) {
   if (this[key] instanceof Date) return wrap(this[key].toISOString(), "Date");
   return (value instanceof Array) ? handleArray(value) : replace(value);
-  
-}
+};
 
 const replace = value => {
-  if (typeof value === "object" && value !== null) {
-    const propertySymbols = Object.getOwnPropertySymbols(value);
-
-    if (propertySymbols[0]) {
-      for (const symbol of propertySymbols) {
-        const val = value[symbol], description = symbol.description;
-        value["[Symbol(" + description + ")]"] = typeof val === "object" ? Object.assign({}, val) : val;
-        delete value[value];
-      };
-    };
+  if (typeof value === "object" && value !== null && !(value instanceof Array)) {
+    replaceSymbolKeys(value);
   };
 
   return (
@@ -48,9 +39,21 @@ const replace = value => {
   );
 };
 
+const replaceSymbolKeys = value => {
+  const propertySymbols = Object.getOwnPropertySymbols(value);
+
+  if (propertySymbols[0]) {
+    for (const symbol of propertySymbols) {
+      const val = value[symbol], description = symbol.description;
+      value["[Symbol(" + description + ")]"] = typeof val === "object" ? Object.assign({}, val) : val;
+      delete value[value];
+    };
+  };
+};
+
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : replace(value));
 
 const wrap = (value, type, isArray) => {
   if (isArray) value = JSON.stringify(Array.from(value), replacer);
   return type ? "${" + type + "(" + value + ")" + "}" : "${" + value + "}";
-}
+};

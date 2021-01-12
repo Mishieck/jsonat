@@ -1,22 +1,12 @@
 export const reviver = function (key, value) {
-  if (typeof value === "object" && value !== null && !(value instanceof Array)) {
-    const keys = Object.keys(value), symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
-
-    for (const k of keys) {
-      const matches = k.match(symbolKeyRegex);
-
-      if (matches) {
-        const description = matches[1], val = value[k];
-        value[Symbol(description)] = typeof val === "object" ? Object.assign({}, val) : val;
-        delete value[k];
-      };
-    };
-  };
-
   return value instanceof Array ? handleArray(value) : revive(value);
 };
 
 const revive = value => {
+  if (typeof value === "object" && value !== null && !(value instanceof Array)) {
+    reviveSymbolKeys(value);
+  };
+
   const regex = /^(?:\$\{)([\w\W]+)[\}]$/, matches = typeof value === "string" && value.match(regex);
 
   if (matches) {
@@ -53,6 +43,20 @@ const revive = value => {
   };
 
   return value;
+};
+
+const reviveSymbolKeys = value => {
+  const keys = Object.keys(value), symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
+
+  for (const k of keys) {
+    const matches = k.match(symbolKeyRegex);
+
+    if (matches) {
+      const description = matches[1], val = value[k];
+      value[Symbol(description)] = typeof val === "object" ? Object.assign({}, val) : val;
+      delete value[k];
+    };
+  };
 };
 
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
