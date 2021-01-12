@@ -25,12 +25,10 @@ const JSONATS = {
   parsePartial
 };
 
-export { JSONAT, JSONATS };
-
-// if(typeof exports === "undefined") {
-//   window.JSONAT = JSONAT;
-//   window.JSONATS = JSONATS;
-// } else {
-  // exports.JSONAT = JSONAT;
-  // exports.JSONATS = JSONATS;
-// }
+if (typeof exports === "undefined") {
+  window.JSONAT = JSONAT;
+  window.JSONATS = JSONATS;
+} else {
+  exports.JSONAT = JSONAT;
+  exports.JSONATS = JSONATS;
+}
