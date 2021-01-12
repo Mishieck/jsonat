@@ -12,9 +12,9 @@ export const parsePartial = param => {
       if (regex.test(value)) param[key] = reviver(key, value);
       else if (typeof value === "object" && value !== null) param[key] = parsePartial(value);
     };
-  } else if (value instanceof Array) {
-    for (let len = value.length; len--; ) {
-      if (typeof val === "object") value[i] = parsePartial(value[i]);
+  } else if (param instanceof Array) {
+    for (let len = param.length; len--; ) {
+      if (typeof val === "object") param[i] = parsePartial(param[i]);
     };
   };
   

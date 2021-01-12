@@ -307,17 +307,13 @@ A value with content corresponding to the response type indicated by `responseTy
 ##### _JSONAT_
 
 ```javascript
-let value = await JSONAT.fetch(uri, {
-
-});
+let value = await JSONAT.fetch("https://api.genderize.io?name=lucy");
 ```
 
 ##### _JSONATS_
 
 ```javascript
-let value = JSONATS.fetch(uri, {
-  
-});
+let value = JSONATS.fetch("https://api.genderize.io?name=lucy");
 ```
 
 <br />
@@ -325,7 +321,7 @@ let value = JSONATS.fetch(uri, {
 `value`:
 
 > `> value`<br />
-> `> `
+> `> {name: "lucy", gender: "female", probability: 0.97, count: 24812}`
 
 <br />
 
@@ -333,7 +329,7 @@ let value = JSONATS.fetch(uri, {
 
 #### __Description__
 
-The method `parsePartial` parses parts of an object or array that are stringified using JSONAT format. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parsePartial` would complete the parsing.
+The method `parsePartial` can parse values as `parse` does, but also parse objects and arrays that are partially parsed. One case in which one might need to use this is when a JSON string has been parsed using the regular `JSON.parse` method (e.g using `response.json()`) and the parsing leaves the values stringified via `stringify` as strings. Using `parsePartial` would complete the parsing.
 
 <br />
 
