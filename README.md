@@ -1,6 +1,6 @@
 # <img src="https://user-images.githubusercontent.com/57598264/104122479-de2cd780-534d-11eb-8371-e432af65162a.png" />
 
-JSONAT is a JavaScript library which enables working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous and synchronous ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
+JSONAT is a JavaScript library for working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous (`JSONAT`) and synchronous (`JSONATS`) ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
 
 ## __Quick Start__
 
@@ -124,7 +124,7 @@ let value = await JSONAT.parsePartial({
 
 ### __Introduction__
 
-JSONAT provides a way to work with most JavaScript native data structures in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use `JSONAT`. To use the synchronous version, use `JSONATS`. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given here use JSONAT, the asynchronous version. The parameters for both variants are the same.
+JSONAT provides a way to work with most JavaScript native data structures in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use `JSONAT`. To use the synchronous version, use `JSONATS`. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given in this documentation use JSONAT, the asynchronous version. The parameters for both variants are the same.
 
 ### __Stringify__
 
@@ -179,7 +179,7 @@ let text = JSONATS.stringify({
 
 #### __Description__
 
-The method `parse` converts a string in JSON format to a JavaScript value. Its reviver parses values stringified using `stringify`.
+The method `parse` converts a string in JSON format to a JavaScript value. It uses a reviver taht revives values stringified using `stringify`.
 
 #### __Syntax__
 `parse(value)`
@@ -190,12 +190,10 @@ __*value*__
 A string to be converted to a JavaScript value.
 
 > __Note:__
-> `stringify` does not take a revover as a parameter. JSONAT uses its own replacer.
+> `stringify` does not take a reviver as a parameter. JSONAT uses its own reviver.
 
 #### __Return Value__
 A value in a JavaScript data structure.
-
-<br />
 
 #### __Usage__
 
@@ -257,11 +255,6 @@ A string which indicates the type of response expected. It takes any of the foll
 
 The default value is `"json"`.
 
-> __Note:__
-> `stringify` does not take a reviver as a parameter. JSONAT uses its own replacer.
-
-<br />
-
 #### __Return Value__
 A value with content corresponding to the response type indicated by `responseType`. For example, an `Object` will be returned for `json`, and a `USVString` will be returned for `text`. If `fetch` fails to read the `Response` object to completion, the `Response` object will be returned instead.
 
@@ -301,7 +294,7 @@ __*value*__
 An unparsed value or value with unparsed parts.
 
 #### __Return Value__
-The completly parsed value.
+The completely parsed value.
 
 #### __Usage__
 
