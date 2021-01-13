@@ -1,4 +1,4 @@
-# <img src="https://user-images.githubusercontent.com/57598264/104338431-2c350d00-54ff-11eb-8293-73f2ac3f9aa3.png" />
+# <img src="https://user-images.githubusercontent.com/57598264/104441900-fc3c4700-559c-11eb-86a0-5c8ff1faf9aa.png" />
 
 JSONAT is a JavaScript library for working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous (`JSONAT`) and synchronous (`JSONATS`) ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
 
