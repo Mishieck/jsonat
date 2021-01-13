@@ -1,6 +1,6 @@
 # <img src="https://user-images.githubusercontent.com/57598264/104441900-fc3c4700-559c-11eb-86a0-5c8ff1faf9aa.png" />
 
-JSONAT is a JavaScript library for working with most JavaScript native data structures in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous (`JSONAT`) and synchronous (`JSONATS`) ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
+JSONAT is a JavaScript library for working with most JavaScript native data types in [JSON](http://www.json.org/fatfree.html) format. JSONAT provides both asynchronous (`JSONAT`) and synchronous (`JSONATS`) ways of working with JSON. You can stringify, parse and fetch data using JSONAT.
 
 ## __Quick Start__
 
@@ -111,7 +111,7 @@ let value = await JSONAT.parsePartial({
 
 ### __Introduction__
 
-JSONAT provides a way to work with most JavaScript native data structures in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use `JSONAT`. To use the synchronous version, use `JSONATS`. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given in this documentation use JSONAT, the asynchronous version. The parameters for both variants are the same.
+JSONAT provides a way to work with most JavaScript native data types in JSON format. `JSON`, the property of the window object used to work with JSON data in JavaScript, uses synchronous methods to stringify and parse data. JSONAT has both synchronous and asynchronous variants. To use the asynchronous version, use `JSONAT`. To use the synchronous version, use `JSONATS`. When using NPM, both objects are available in the exports object. When using a CDN, both objects are available in the window object. All examples given in this documentation use JSONAT, the asynchronous version. The parameters for both variants are the same.
 
 ### __Stringify__
 
