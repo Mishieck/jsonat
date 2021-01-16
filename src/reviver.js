@@ -7,11 +7,11 @@ const revive = value => {
     reviveSymbolKeys(value);
   };
 
-  const regex = /^(?:\$\{)([\w\W]+)[\}]$/, matches = typeof value === "string" && value.match(regex);
+  const regex = /^(?:\$\{)([\w\W]+)[\}]$/,
+        matches = typeof value === "string" && value.match(regex);
 
   if (matches) {
     const val = matches[1];
-    val.startsWith("BigInt64Array") && console.info(getParam(val))
     
     return (
       val === "undefined" ? null
@@ -46,7 +46,8 @@ const revive = value => {
 };
 
 const reviveSymbolKeys = value => {
-  const keys = Object.keys(value), symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
+  const keys = Object.keys(value),
+        symbolKeyRegex = /^(?:\[Symbol\()([\w\W]+)(?:\)\])$/;
 
   for (const k of keys) {
     const matches = k.match(symbolKeyRegex);
@@ -63,7 +64,7 @@ const reviveRegex = value => {
   let flags = value.substring(value.lastIndexOf("/") + 1);
   value = value.substring(value.indexOf("/") + 1, value.lastIndexOf("/"));
   return new RegExp(value, flags);
-}
+};
 
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
 const getParam = value => value.substring(value.indexOf("(") + 1, value.lastIndexOf(")"));
