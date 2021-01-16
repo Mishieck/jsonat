@@ -20,7 +20,7 @@ const revive = value => {
       : val === "-Infinity" ? -Infinity
       : val.startsWith("Function") ? eval(getParam(val))
       : val.startsWith("BigInt(") ? BigInt(getParam(val))
-      : val.startsWith("RegExp") ? new RegExp(getParam(val).replace(/^\/|\/$/g, ""))
+      : val.startsWith("RegExp") ? reviveRegex(getParam(val))
       : val.startsWith("Date") ? new Date(getParam(val))
       : val.startsWith("Symbol") ? Symbol(getParam(val))
       : val.startsWith("Set") ? new Set(parse(val))
@@ -58,6 +58,12 @@ const reviveSymbolKeys = value => {
     };
   };
 };
+
+const reviveRegex = value => {
+  let flags = value.substring(value.lastIndexOf("/") + 1);
+  value = value.substring(value.indexOf("/") + 1, value.lastIndexOf("/"));
+  return new RegExp(value, flags);
+}
 
 const handleArray = arr => arr.map(value => value instanceof Array ? handleArray(value) : revive(value));
 const getParam = value => value.substring(value.indexOf("(") + 1, value.lastIndexOf(")"));
