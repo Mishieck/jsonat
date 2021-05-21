@@ -1,4 +1,4 @@
-export const JAVASCRIPT_DATA_STRUCTURES = {
+const JAVASCRIPT_DATA_STRUCTURES = {
   primitives: {
     undefined: undefined,
     null: null,
@@ -72,3 +72,6 @@ export const JAVASCRIPT_DATA_STRUCTURES = {
 
   [Symbol("Key Words")]: "JSONAT, JSONATS, stringify, parse, fetch, parsePartial"
 };
+
+
+export default JAVASCRIPT_DATA_STRUCTURES;
