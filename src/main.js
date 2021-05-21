@@ -4,8 +4,8 @@ import { JSONATFetch } from "./jsonat-fetch.js";
 import { parsePartial } from "./parse-partial.js";
 
 
-const stringify = async (value, space) => JSON.stringify(value, replacer, space);
-const parse = async text => JSON.parse(text, reviver);
+const stringify = (value, space) => JSON.stringify(value, replacer, space);
+const parse = text => JSON.parse(text, reviver);
 
 const JSONAT = {
   stringify: async (value, space) => stringify(value, space),
@@ -25,10 +25,5 @@ const JSONATS = {
   parsePartial
 };
 
-if (typeof exports === "undefined") {
-  window.JSONAT = JSONAT;
-  window.JSONATS = JSONATS;
-} else {
-  exports.JSONAT = JSONAT;
-  exports.JSONATS = JSONATS;
-}
+
+export { JSONAT, JSONATS };
