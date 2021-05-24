@@ -2,9 +2,10 @@
   "name": "jsonat",
   "version": "1.0.4",
   "description": "JSONAT is a JavaScript library for working with most JavaScript native data types in JSON format.",
-  "main": "./dist/jsonat.js",
+  "main": "./dist/main.js",
   "files": [
-    "/dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "webpack --config webpack.config.js"

@@ -1,22 +1,25 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, './src/jsonat.js'),
+  entry: path.resolve(__dirname, "./src/main.js"),
   module: {
     rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ["babel-loader"]
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ["*", ".js"]
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'jsonat.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
+    library: "JSONAT",
+    libraryTarget: "umd",
+    umdNamedDefine: true
   }
 };
